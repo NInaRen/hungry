@@ -31,13 +31,28 @@
       <img :src="seller.avatar" width="100%" height="100%"/>
     </div>
     <div v-show="detailShow" class="detail">
+      <div class="detail-wrapper clearfix">
+        <div class="detail-main">
+          <h1 class="name">{{seller.name}}</h1>
+          <div class="star-wrapper">
+            <star :size="48" :score="seller.score"></star>
+          </div>
 
+        </div>
+      </div>
+      <div class="detail-close">
+        <i class="icon-close"></i>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+  import star from 'components/star/star'
   export default {
+    components: {
+      star,
+    },
     data() {
       return {
         detailShow: false
@@ -56,7 +71,6 @@
         this.detailShow = true
       }
     }
-
   }
 </script>
 
@@ -94,6 +108,10 @@
             font-size 16px
             font-weight bold
             line-height 18px
+          .star-wrapper
+            margin-top 16px
+            padding-bottom 16px
+            text-align center
         .description
           margin-bottom 10px
           font-size 12px
@@ -185,4 +203,27 @@
       height 100%
       overflow: auto
       background rgba(7,17,27,0.8)
+      .detail-wrapper
+        min-height 100%
+        width 100%
+        .detail-main
+          margin-top 64px
+          padding-bottom 64px
+          .name
+            line-height 16px
+            text-align center
+            font-size 16px
+            font-weight 700
+          .star-wrapper
+            margin-top: 18px
+            padding 2px 0
+            text-align center
+      .detail-close
+        position relative
+        width 32px
+        height 32px
+        margin -64px auto
+        clear both
+        font-size 32px
+
 </style>
