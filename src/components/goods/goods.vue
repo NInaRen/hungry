@@ -35,16 +35,21 @@
         </li>
       </ul>
     </div>
+    <shopcart :delivery-price="seller.deliveryPrice" :min-price="seller.minPrice"></shopcart>
   </div>
 
 </template>
 
 <script>
   import BScroll from 'better-scroll'
+  import shopcart from 'components/shopcart/shopcart'
 
   const ERROE_OK = 0
 
   export default {
+    components: {
+      shopcart
+    },
     props: {
       seller: {
         type: Object
@@ -127,7 +132,7 @@
     width 100%
     overflow hidden
     .menu-wrapper
-      font: 0 0 80px
+      flex: 0 0 80px
       width 80px
       background #f3f5f7
       .menu-item
